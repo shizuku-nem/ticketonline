@@ -40,7 +40,7 @@
 
 </style>
 <div class="main">
-    <h1>Hello {{ $name }}. Phone: {{ $phone }}</h1>
+    <h1>Hello</h1>
     <img class="img_body" src="https:////static.vexere.com/production/banners/330/140k_leader-board_1920x_jpg.jpg" alt="">
     <div class="homepage_content">
         <h2>Tieu de</h2>
