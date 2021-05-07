@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Shop;
 
 class HomeController extends Controller
 {
@@ -27,6 +29,8 @@ class HomeController extends Controller
             "name" => "Dai",
             "phone" => "091232133"
         ];
+        $shop = Shop::find(1);
+        $shop->products()->sync([2, 3]);
         return view('homepage', $data);
     }
 }

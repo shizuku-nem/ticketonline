@@ -32,10 +32,8 @@ class Trip extends Model
         'remember_token',
     ];
 
-    public function seets()
-    {
-        return $this->hasMany(Seet::class, 'idTrip');
+    public function car() {
+        return $this->belongTo(Car::class);
     }
-
 
 }

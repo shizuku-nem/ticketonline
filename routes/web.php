@@ -1,7 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\HomeController;
 
+Route::resource('photos', PhotoController::class);
+Route::resource('users', UserController::class);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,8 +37,8 @@ Route::get('/tripinformation', function () {
 
 Auth::routes();
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('homepage');
+Route::get('/', [UserController::class, 'index']);
 
-Route::post('/', function () {
+Route::post('/postlisttrip', function () {
     return view('listtrip');
 });

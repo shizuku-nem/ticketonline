@@ -14,7 +14,7 @@ class CreateMAddressTripEndPointsTable extends Migration
     public function up()
     {
         Schema::create('m_address_trip_end_points', function (Blueprint $table) {
-            $table->id()->unique();
+            $table->increments('id');
             $table->timestamps();
         });
     }

@@ -13,12 +13,13 @@ class CreateTripsTable extends Migration
      */
     public function up()
     {
+        // $table->enum('type', ['Not seet', 'Economy', 'Business']);
         Schema::create('trips', function (Blueprint $table) {
-            $table->id()->unique();
-            $table->dateTime('startTime');
-            $table->dateTime('endTime');
-            $table->dateTime('idStartPoint');
-            $table->dateTime('idEndPoint');
+            $table->increments('id')->unique();
+            $table->dateTime('start_time');
+            $table->dateTime('end_time');
+            $table->integer('start_point_id');
+            $table->integer('end_point_id');
             $table->decimal('price');
             $table->timestamps();
         });

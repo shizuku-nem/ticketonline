@@ -14,7 +14,7 @@ class CreateMOrderSeetsTable extends Migration
     public function up()
     {
         Schema::create('m_order_seets', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->timestamps();
         });
     }

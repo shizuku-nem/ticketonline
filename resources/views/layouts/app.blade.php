@@ -67,7 +67,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -93,8 +93,19 @@
         </main>
         <!-- Footer -->
         <footer class="bg-light text-center text-lg-start">
+            <form action="{{route('users.create')}}" method="get">
+                <button type="submit" class="btn btn-info text-uppercase font-weight-bold rounded-0">
+                     create a new user
+                </button>
+            </form>
+            <br>
+            <form action="{{route('users.index')}}" method="get">
+                <button type="submit" class="btn btn-info text-uppercase font-weight-bold rounded-0">
+                     home
+                </button>
+            </form>
             <!-- Grid container -->
-            <div class="container p-4">
+            {{-- <div class="container p-4">
             <!--Grid row-->
             <div class="row">
                 <!--Grid column-->
@@ -129,7 +140,7 @@
             <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:
             <a class="text-dark" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-            </div>
+            </div> --}}
             <!-- Copyright -->
         </footer>
         <!-- Footer -->

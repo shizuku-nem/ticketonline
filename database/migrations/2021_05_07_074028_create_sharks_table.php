@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdersTable extends Migration
+class CreateSharksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::table('sharks', function (Blueprint $table) {
+            //
             $table->increments('id');
-            $table->integer('idCustomer');
-            $table->integer('idStartPoint');
-            $table->integer('idEndPoint');
+
+            $table->string('name', 255);
+            $table->string('email', 255);
+            $table->integer('shark_level');
+
             $table->timestamps();
         });
     }
@@ -29,6 +32,8 @@ class CreateOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::table('sharks', function (Blueprint $table) {
+            //
+        });
     }
 }
