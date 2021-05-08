@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->increments('id')->unique();
             $table->string('username');
             $table->string('password');
+            $table->enum('role',['Admin', 'Customer', 'Car Owner']);
             $table->rememberToken();
             $table->timestamps();
         });

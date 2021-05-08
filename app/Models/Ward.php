@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MAddressTripEndPoint extends Model
+class Ward extends Model
 {
     use HasFactory;
-
-    public function trips()
-    {
-        return $this->belongsToMany(Trip::class);
-    }
 }

@@ -16,6 +16,8 @@ class CreateTripsTable extends Migration
         // $table->enum('type', ['Not seet', 'Economy', 'Business']);
         Schema::create('trips', function (Blueprint $table) {
             $table->increments('id')->unique();
+            $table->integer('car_id')->unsigned()->index();
+            $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
             $table->integer('start_point_id');

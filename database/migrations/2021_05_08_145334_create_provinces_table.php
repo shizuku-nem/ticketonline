@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMAddressTripEndPointsTable extends Migration
+class CreateProvincesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateMAddressTripEndPointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('m_address_trip_end_points', function (Blueprint $table) {
+        Schema::create('provinces', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('gso_id');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateMAddressTripEndPointsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('m_address_trip_end_points');
+        Schema::dropIfExists('provinces');
     }
 }
