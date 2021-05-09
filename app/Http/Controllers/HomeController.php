@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Shop;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -33,4 +34,6 @@ class HomeController extends Controller
         $shop->products()->sync([2, 3]);
         return view('homepage', $data);
     }
+
+    
 }

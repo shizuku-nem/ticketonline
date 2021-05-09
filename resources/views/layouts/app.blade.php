@@ -104,6 +104,11 @@
                      home
                 </button>
             </form>
+            <form action="{{route('searchtripview')}}" method="get">
+                <button type="submit" class="btn btn-info text-uppercase font-weight-bold rounded-0">
+                     search trip
+                </button>
+            </form>
             <!-- Grid container -->
             {{-- <div class="container p-4">
             <!--Grid row-->

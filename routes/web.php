@@ -27,7 +27,7 @@ Route::get('/listtrip', function () {
     return view('listtrip');
 });
 
-Route::get('/home', function () {
+Route::get('/homepage', function () {
     return view('home');
 });
 
@@ -38,6 +38,9 @@ Route::get('/tripinformation', function () {
 Auth::routes();
 
 Route::get('/', [UserController::class, 'index']);
+Route::get('/searchtrip', function() {
+    return view('searchtrip');
+})->name('searchtripview');
 
 Route::post('/postlisttrip', function () {
     return view('listtrip');

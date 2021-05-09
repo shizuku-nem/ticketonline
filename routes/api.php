@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +23,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/hello', function(Request $req){
     return response()->json("hello", 200);
 });
+
+Route::post('/searchtrip', [UserController::class, 'searchtrip'])->name('searchtrippost');
+
+Route::get('/getlistprovinces', [UserController::class, 'getlistprovinces'])->name('getlistprovinces');
+
+

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use DateTime;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -20,6 +22,29 @@ class UserController extends Controller
             'users.index',
             ['users' => $users]
         );
+    }
+    
+    /**
+     * Show a listing of trips.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function searchtrip(Request $request) {
+        $start_point_id = (int) $request->start_point_id;
+        $end_point_id = (int) $request->end_point_id;
+        $start_time = new DateTime($request->start_time);
+        $trips = DB::table('trips')->where([
+            ['start_point_id', '=', $start_point_id],
+            ['end_point_id', '=', $end_point_id],
+        ])->whereDate('start_time', $start_time->format('Y-m-d'))->get();
+        return $trips;
+    }
+
+    public function getlistprovinces()
+    {
+        $provinces = DB::table('provinces')->get();
+        return response()->json($provinces, 200, ['Content-Type' => 'application/json;charset=UTF-8', 'Charset' => 'utf-8'], JSON_UNESCAPED_UNICODE);
     }
 
     /**

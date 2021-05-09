@@ -18,11 +18,13 @@ class CreateTripsTable extends Migration
             $table->increments('id')->unique();
             $table->integer('car_id')->unsigned()->index();
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
+            $table->integer('start_point_id')->unsigned()->index();
+            $table->foreign('start_point_id')->references('id')->on('provinces')->onDelete('cascade');
+            $table->integer('end_point_id')->unsigned()->index();
+            $table->foreign('end_point_id')->references('id')->on('provinces')->onDelete('cascade');
+            $table->integer('price');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
-            $table->integer('start_point_id');
-            $table->integer('end_point_id');
-            $table->decimal('price');
             $table->timestamps();
         });
     }
