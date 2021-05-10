@@ -31,13 +31,20 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function searchtrip(Request $request) {
-        $start_point_id = (int) $request->start_point_id;
-        $end_point_id = (int) $request->end_point_id;
+        $start_point = (string) '%'.$request->start_point.'%';
+        $end_point = (string) '%'.$request->end_point.'%';
         $start_time = new DateTime($request->start_time);
-        $trips = DB::table('trips')->where([
-            ['start_point_id', '=', $start_point_id],
-            ['end_point_id', '=', $end_point_id],
-        ])->whereDate('start_time', $start_time->format('Y-m-d'))->get();
+//        $query = User::where('name', 'LIKE', '%' . $term . '%');
+        echo $start_point.$end_point;
+        $trips = DB::table('trips')
+            ->join('provinces as A', 'trips.start_point_id', '=', 'A.id')
+            ->join('provinces as B', 'trips.end_point_id', '=', 'B.id')
+            ->where([
+                ['A.name', 'LIKE', $start_point],
+                ['B.name', 'LIKE', $end_point],
+            ])
+            ->whereDate('start_time', $start_time->format('Y-m-d'))
+            ->get();
         return $trips;
     }
 

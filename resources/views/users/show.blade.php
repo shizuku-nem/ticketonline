@@ -8,7 +8,7 @@
           <tr class="text-center">
             <th scope="col" class="">#</th>
             <th scope="col" class="">UserName</th>
-            <th scope="col" class="">Password</th>
+            <th scope="col" class="">Role</th>
             <th scope="col" class="">Created Date</th>
             <th scope="col" class="">Updated Date</th>
             <th scope="col" class="">Action</th>
@@ -18,7 +18,7 @@
           <tr class="text-center">
             <th scope="row">{{$user->id}}</th>
             <td>{{$user->username}}</td>
-            <td>{{$user->password}}</td>
+            <td>{{$user->role}}</td>
             <td>{{$user->created_at}}</td>
             <td>{{$user->updated_at}}</td>
             <td class="d-flex border-0 align-items-center">
