@@ -45,7 +45,7 @@ class UserController extends Controller
                 ['B.name', 'LIKE', $end_point],
             ])
             ->whereDate('start_time', $start_time->format('Y-m-d'))
-            ->select('trips.*', 'cars.*')
+            ->select('trips.*', 'cars.*', "A.name AS start_point", "B.name AS end_point")
             ->get();
         return $trips;
     }
