@@ -35,15 +35,17 @@ class UserController extends Controller
         $end_point = (string) '%'.$request->end_point.'%';
         $start_time = new DateTime($request->start_time);
 //        $query = User::where('name', 'LIKE', '%' . $term . '%');
-        echo $start_point.$end_point;
+        //echo $start_point.$end_point;
         $trips = DB::table('trips')
             ->join('provinces as A', 'trips.start_point_id', '=', 'A.id')
             ->join('provinces as B', 'trips.end_point_id', '=', 'B.id')
+            ->join('cars', 'trips.car_id', '=', 'cars.id')
             ->where([
                 ['A.name', 'LIKE', $start_point],
                 ['B.name', 'LIKE', $end_point],
             ])
             ->whereDate('start_time', $start_time->format('Y-m-d'))
+            ->select('trips.*', 'cars.*')
             ->get();
         return $trips;
     }
